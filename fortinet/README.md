@@ -21,3 +21,7 @@ In your /var/ossec/etc/ossec.conf file, you will need to add this integration se
   </integration>
 ````
 
+## Notes
+
+To block an IP address:
+`diagnose user quarantine add src4 xxx.xxx.xxx.xxx 60 admin` 
