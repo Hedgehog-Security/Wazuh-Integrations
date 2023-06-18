@@ -1,4 +1,4 @@
-# Fortinet integration script
+# Fortinet integration scripts
 
 ## By
 Author:   Peter Bassill
