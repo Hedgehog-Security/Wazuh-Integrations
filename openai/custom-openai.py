@@ -23,7 +23,6 @@ full_log = alert_json['full_log']
 
 # Set up the open.ai variables
 aiModel = "text-davinci-003"
-aikey = "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"
 beforePrompt = 'Please explain the following log entry seen on the SIEM: "'
 url = 'https://api.openai.com/v1/completions'
 
