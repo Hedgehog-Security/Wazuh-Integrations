@@ -9,10 +9,9 @@ import json
 import requests
 from requests.exceptions import HTTPError
 
-today = date.today()
-
 # Read configuration parameters
 alert_file = open(sys.argv[1])
+apikey = sys.arvg[2]
 
 # Read the alert file
 alert_json = json.loads(alert_file.read())
@@ -40,7 +39,7 @@ qdata = {
 
 headers = {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer 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'
+            'Authorization': apikey
 }
 
 try:
