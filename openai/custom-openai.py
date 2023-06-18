@@ -13,7 +13,6 @@ today = date.today()
 
 # Read configuration parameters
 alert_file = open(sys.argv[1])
-apikey = open(sys.argv[2])
 
 # Read the alert file
 alert_json = json.loads(alert_file.read())
@@ -24,12 +23,13 @@ full_log = alert_json['full_log']
 
 # Set up the open.ai variables
 aiModel = "text-davinci-003"
+aikey = "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"
+beforePrompt = 'Please explain the following log entry seen on the SIEM: "'
 url = 'https://api.openai.com/v1/completions'
-oquestion = "Please explain in as much detail as possible what is meant by the following log entry: "
 
 qdata = {
             'model': aiModel,
-            'prompt': oquestion + full_log,
+            'prompt': beforePrompt + full_log,
             'max_tokens': 1500,
             'temperature': 0,
             'top_p': 1,
@@ -41,7 +41,7 @@ qdata = {
 
 headers = {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + apikey
+            'Authorization': 'Bearer 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'
 }
 
 try:
