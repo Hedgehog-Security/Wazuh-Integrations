@@ -17,7 +17,9 @@ In your /var/ossec/etc/ossec.conf file, you will need to add this integration se
 ````
   <integration>
     <name>custom-fortinet</name>
-       ...
+    <firewall>qqq.rrr.ssss.ttt</firewall>
+    <ip>www.xxx.yyy.zzz</ip>
+    <time>perm</time>
   </integration>
 ````
 
