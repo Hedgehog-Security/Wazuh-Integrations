@@ -1,6 +1,6 @@
 # Wazuh Integrations
 
-## By
+## By Hedgehog Security
 Author:   Peter Bassill
 
 By:       Hedgehog Security - https://hedgehogsecurity.co.uk/services/managed-wazuh/
