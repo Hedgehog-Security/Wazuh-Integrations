@@ -16,23 +16,22 @@ default_assign = sys.argv[4]
 alert_json = json.loads(alert_file.read())
 alert_file.close()
 
-# Extract issue fields
 # Check if agent key exists and extract the data
 if "agent" in alert_json:
     if "name" in alert_json['agent']:
-        agent_name = alert_json['agent']['name']
+        agent_name = str(alert_json['agent']['name'])
     else:
         agent_name = "Agent name is unknown"
     if "ip" in alert_json['agent']:
-        agent_ip = alert_json['agent']['ip']
+        agent_ip = str(alert_json['agent']['ip'])
     else:
         agent_ip = "Agent IP is unknown"
     if "id" in alert_json['agent']:
-        agentid = alert_json['agent']['id']
+        agentid = str(alert_json['agent']['id'])
     else:
         agentid = "AgentID is unknown"
     if "labels" in alert_json['agent']:
-        client = alert_json['agent']['labels']
+        client = str(alert_json['agent']['labels'])
     else:
         client = "Unknown"
 else:
@@ -40,6 +39,7 @@ else:
     agent_ip = "Agent IP is unknown"
     agentid = "AgentID is unknown"
     client = "Unknown"
+
 
 alert_level = alert_json['rule']['level']
 description = alert_json['rule']['description']
@@ -61,11 +61,12 @@ form_data = {
         'app': 'tickets',
         'key': api_key,
         'action': 'newticket',
-        'assign': str(default_assign),
+        'assign': str(assign),
         'priority': priority,
-        'subject': 'Wazuh raised alert on ' + agent_name + ' [' + str(agent_ip) + ']',
-        'description': 'Ticket generated for ' + client + '\n- Rule ID: ' + str(ruleid) + '\n- Alert level: ' + str(alert_level) + '\n- Agent: ' + str(agentid) + ' ' + agent_name + ' ['+ str(agent_ip) +'] \n- State: ' + description + '\n- Log Data: ' + full_log
+        'subject': f'Wazuh raised alert on ' + agent_name + ' [' + agent_ip + ']',
+        'description': f'Ticket generated for ' + client + '\n- Rule ID: ' + ruleid + '\n- Alert level: ' + str(alert_level) + '\n- Agent: ' + agentid + ' ' + agent_name + ' ['+ agent_ip +'] \n- State: ' + description + '\n- Log Data: ' + full_log
         }
+
 
 server = requests.post(url, data=form_data)
 output = server.text
