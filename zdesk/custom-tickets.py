@@ -17,20 +17,29 @@ alert_json = json.loads(alert_file.read())
 alert_file.close()
 
 # Extract issue fields
-
 # Check if agent key exists and extract the data
 if "agent" in alert_json:
-    agent_name = alert_json['agent']['name']
-    agent_ip = alert_json['agent']['ip']
-    agentid = alert_json['agent']['id']
+    if "name" in alert_json['agent']:
+        agent_name = alert_json['agent']['name']
+    else:
+        agent_name = "Agent name is unknown"
+    if "ip" in alert_json['agent']:
+        agent_ip = alert_json['agent']['ip']
+    else:
+        agent_ip = "Agent IP is unknown"
+    if "id" in alert_json['agent']:
+        agentid = alert_json['agent']['id']
+    else:
+        agentid = "AgentID is unknown"
     if "labels" in alert_json['agent']:
         client = alert_json['agent']['labels']
     else:
         client = "Unknown"
 else:
     agent_name = "syslog"
-    agent_ip = ""
-    agent_id = ""
+    agent_ip = "Agent IP is unknown"
+    agentid = "AgentID is unknown"
+    client = "Unknown"
 
 alert_level = alert_json['rule']['level']
 description = alert_json['rule']['description']
