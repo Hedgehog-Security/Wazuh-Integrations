@@ -1,5 +1,13 @@
 #!/var/ossec/framework/python/bin/python3
 
+# ----------------------------------------------------
+# custom-tickets.py - a Wazuh Integration for Z-Desk
+#
+# Version:  1.21b
+# Date:     20/06/2023
+# Author:   Peter Bassill
+# ----------------------------------------------------
+
 import sys
 import json
 import requests
