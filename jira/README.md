@@ -21,12 +21,16 @@ In your /var/ossec/etc/ossec.conf file, you will need to add this integration se
   <!-- JIRA -->
   <integration>
     <name>custom-jira</name>
-    <hook_url>https://hedgehogsec.atlassian.net/rest/api/2/issue/</hook_url>
+    <hook_url>https://YOURPREFIX.atlassian.net/rest/api/2/issue/</hook_url>
     <level>12</level>
     <api-key>APIKEY</api-key>
     <alert_format>json</alert_format>
   </integration>
 ````
+
+You will need to change the HOOK_URL to use your particular hook url. 
+Change the level to generate the alert level you want to be raising tickets on.
+The APIKEY should be changed to your jira api key.
 
 In /var/ossec/integrations/custom-jira.py, you need to set FOUR variables:
 
