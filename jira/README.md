@@ -26,8 +26,18 @@ In your /var/ossec/etc/ossec.conf file, you will need to add this integration se
     <api-key>APIKEY</api-key>
     <alert_format>json</alert_format>
   </integration>
+````
+
+In /var/ossec/integrations/custom-jira.py, you need to set FOUR variables:
 
 ````
+# Set the project details
+project_alias = 'ALIAS'
+issue_name = 'Wazuh Alert'
+````
+
+Project Alias should the the alias of your project as you have set in JIRA.
+The issue_name can be configured to what ever you want the issue name to be. We use "Wazuh Alert".
 ## Manual Testing
 To manually fire the script, try:
 
