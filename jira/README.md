@@ -29,7 +29,9 @@ In your /var/ossec/etc/ossec.conf file, you will need to add this integration se
 ````
 
 You will need to change the HOOK_URL to use your particular hook url. 
+
 Change the level to generate the alert level you want to be raising tickets on.
+
 The APIKEY should be changed to your jira api key.
 
 In /var/ossec/integrations/custom-jira.py, you need to set FOUR variables:
