@@ -38,6 +38,16 @@ issue_name = 'Wazuh Alert'
 
 Project Alias should the the alias of your project as you have set in JIRA.
 The issue_name can be configured to what ever you want the issue name to be. We use "Wazuh Alert".
+
+````
+# Set the project attributes
+project_key = 'KEY'
+issuetypeid = 'ID'
+````
+
+The project key is set within Jira. The Project Key is the prefix of the issue number.  In the example of HEDGEHOG-123, the "HEDGEHOG" portion of the issue number is the Project Key. 
+The issuetypeid is set within Jira. You can find the issuetypeid here: https://confluence.atlassian.com/jirakb/how-to-get-issue-id-from-the-jira-user-interface-1115156394.html
+
 ## Manual Testing
 To manually fire the script, try:
 
