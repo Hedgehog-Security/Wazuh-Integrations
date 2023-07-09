@@ -52,9 +52,14 @@ issuetypeid = 'ID'
 ````
 
 The project key is set within Jira. The Project Key is the prefix of the issue number.  In the example of HEDGEHOG-123, the "HEDGEHOG" portion of the issue number is the Project Key. 
+
 The issuetypeid is set within Jira. You can find the issuetypeid here: https://confluence.atlassian.com/jirakb/how-to-get-issue-id-from-the-jira-user-interface-1115156394.html
 
 ## Manual Testing
-To manually fire the script, try:
+To manually fire the script, first you need to generate a test alert file. You can create this by:
 
-/var/ossec/framework/python/bin/python3 /var/ossec/integrations/custom-jira.py ./test.json USER:JIRA_API JIRA_URL
+`tail -1 /var/ossec/logs/alerts/alerts.json > ~/test-alert.json`
+
+The you can run:
+
+`/var/ossec/framework/python/bin/python3 /var/ossec/integrations/custom-jira.py ~/test.json USER:JIRA_API JIRA_URL`
