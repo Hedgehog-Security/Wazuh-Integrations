@@ -11,6 +11,9 @@ Version:  1.2
 This script is a Wazuh integration script for JIRA.
 
 ## Configuration
+You will to place both files in your /var/ossec/integrations folder and ensure they are owned by root in group wazuh
+
+`chown root:wazuh /var/ossec/integrations/custom-jir*`
 
 In your /var/ossec/etc/ossec.conf file, you will need to add this integration section:
 
@@ -25,4 +28,7 @@ In your /var/ossec/etc/ossec.conf file, you will need to add this integration se
   </integration>
 
 ````
+## Manual Testing
+To manually fire the script, try:
 
+/var/ossec/framework/python/bin/python3 /var/ossec/integrations/custom-jira.py ./test.json USER:JIRA_API JIRA_URL
